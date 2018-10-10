@@ -1,4 +1,4 @@
-package com.Array.test;
+package util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,75 +7,71 @@ import java.util.Collections;
 /**
  * Created by Nabeel on 3/15/2016.
  */
-public class Array_Funcation {
-    //
+public class ArrayFunction {
     //Ok
     // test the both String and List
+    public final static void test(Object get , Object expected){
 
-        public final static void test(Object get , Object expected){
+        try {
+            // condition used for result
+            if (String.valueOf(get).equalsIgnoreCase(String.valueOf(expected))){
 
-            try {
-                // condition used for result
-
-                if (get.toString().equalsIgnoreCase(expected.toString())){
-
-                    System.out.print("OK"+"  ");
-                }
-                // condition used for reject the result
-                else{
-                    System.out.print("XX"+"  ");
-                }
-            } catch (Exception e) {
-                //
-                System.out.println("System not working ");
+                System.out.print("OK"+"  ");
             }
+            // condition used for reject the result
+            else{
+
+                System.out.print("XX"+"  ");
+
+            }
+
+        } catch (Exception e) {
+            //
+            System.out.println("System not working ");
 
         }
 
+    }
+
         // Ok
         // test the match ends and send back to the main
+    public final static Object match_ends(Object match_e[]){
 
-        public final static Object match_ends(Object match_e[]){
+        try {
+            // count the word
+            int count_end = 0;
+            // get the single word
+            Object get_word;
+            // break the word into the single char but the type is Object
+            Object temp = null,temp2 = null;
+            // used the loop to access the array index
 
-            try {
-                // count the word
+            for(Object match_key : match_e){
 
-                int count_end = 0;
-                // get the single word
-                Object get_word;
-                // break the word into the single char but the type is Object
-                Object temp = null,temp2 = null;
-                // used the loop to access the array index
+                // assign the word to the single object
+                get_word = match_key.toString();
+                // condition for null or empty String
+                if(!get_word.equals("")){
+                    // get the first single letter but the type is Object
+                    temp = get_word.toString().charAt(0);
+                    // get the last single letter but the type is Object
+                    temp2 = get_word.toString().charAt(get_word.toString().length()-1);
+                    // condition for both first and end are equal if true it count else not
+                    if(temp.toString().equalsIgnoreCase(temp2.toString())){
 
-                for(Object match_key : match_e){
+                        count_end += 1;
 
-                    // assign the word to the single object
-                    get_word = match_key.toString();
-                    // condition for null or empty String
-                    if(!get_word.equals("")){
-                        // get the first single letter but the type is Object
-                        temp = get_word.toString().charAt(0);
-
-                        // get the last single letter but the type is Object
-                        temp2 = get_word.toString().charAt(get_word.toString().length()-1);
-
-                        // condition for both first and end are equal if true it count else not
-                        if(temp.toString().equalsIgnoreCase(temp2.toString())){
-
-                            count_end += 1;
-                        }
                     }
                 }
-                // return the Result of the Process
-                return count_end;
+            }
+            // return the Result of the Process
+            return count_end;
+            // catch used to handle the exception
 
-                // catch used to handle the exception
+        } catch (Exception e) {
 
-            } catch (Exception e) {
-
-                // if the exception is rise it show the message of the error
-
-                return "Indext out of Range The Error are found in method match_End";
+            // if the exception is rise it show the message of the error
+            return "Indext out of Range The Error are found in method match_End";
         }
     }
 

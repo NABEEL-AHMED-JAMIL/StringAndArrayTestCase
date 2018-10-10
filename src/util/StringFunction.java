@@ -1,9 +1,9 @@
-package com.String.test;
+package util;
 
 /**
  * Created by Nabeel on 3/15/2016.
  */
-public class String_Fucntio {
+public class StringFunction {
     //
     // Ok
     // test function is used to test the function input in ok and xx form
