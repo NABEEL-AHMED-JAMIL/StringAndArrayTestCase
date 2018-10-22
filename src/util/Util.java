@@ -41,18 +41,35 @@ public class Util {
         return cal.getTime();
     }
 
+    public static String mongoEscape(String input, Character replaceChar, Character withChar) {
+        return input.replaceAll("\\.", "_,_").replaceAll("^$", "_$_");
+    }
+
+
+    public static String mongoUnEscape(String input) {
+        return input.replaceAll("_,_", "\\.").replaceAll("_$_", "^$");
+    }
+
     public static void main(String args[]) {
-        HashMap<UUID, Integer> uuIdMap = new HashMap<>();
-        while (true) {
-            UUID uuid = getUuid();
-            if(uuIdMap.containsKey(uuid)) {
-                out.println("========================");
-                uuIdMap.put(uuid, uuIdMap.get(uuid) + 1);
-                out.println("========================");
-            }else {
-                uuIdMap.put(uuid, 1);
-                out.println(uuid);
-            }
-        }
+        String input = "Pàkiétan";
+        System.out.println(input =input.replace('é', 'S'));
+        System.out.println(input.replace('à', 'S'));
+
+
+        String inputtest = "Pàkiééééééééééétan125555";
+        System.out.println(inputtest.replaceAll("é", "A"));
+
+//        HashMap<UUID, Integer> uuIdMap = new HashMap<>();
+//        while (true) {
+//            UUID uuid = getUuid();
+//            if(uuIdMap.containsKey(uuid)) {
+//                out.println("========================");
+//                uuIdMap.put(uuid, uuIdMap.get(uuid) + 1);
+//                out.println("========================");
+//            }else {
+//                uuIdMap.put(uuid, 1);
+//                out.println(uuid);
+//            }
+//        }
     }
 }

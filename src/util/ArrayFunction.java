@@ -8,35 +8,27 @@ import java.util.Collections;
  * Created by Nabeel on 3/15/2016.
  */
 public class ArrayFunction {
+
     //Ok
     // test the both String and List
     public final static void test(Object get , Object expected){
-
         try {
             // condition used for result
             if (String.valueOf(get).equalsIgnoreCase(String.valueOf(expected))){
-
                 System.out.print("OK"+"  ");
             }
             // condition used for reject the result
             else{
-
                 System.out.print("XX"+"  ");
-
             }
-
         } catch (Exception e) {
-            //
             System.out.println("System not working ");
-
         }
-
     }
 
-        // Ok
-        // test the match ends and send back to the main
+    // Ok
+    // test the match ends and send back to the main
     public final static Object match_ends(Object match_e[]){
-
         try {
             // count the word
             int count_end = 0;
@@ -45,9 +37,7 @@ public class ArrayFunction {
             // break the word into the single char but the type is Object
             Object temp = null,temp2 = null;
             // used the loop to access the array index
-
             for(Object match_key : match_e){
-
                 // assign the word to the single object
                 get_word = match_key.toString();
                 // condition for null or empty String
@@ -58,18 +48,14 @@ public class ArrayFunction {
                     temp2 = get_word.toString().charAt(get_word.toString().length()-1);
                     // condition for both first and end are equal if true it count else not
                     if(temp.toString().equalsIgnoreCase(temp2.toString())){
-
                         count_end += 1;
-
                     }
                 }
             }
             // return the Result of the Process
             return count_end;
             // catch used to handle the exception
-
         } catch (Exception e) {
-
             // if the exception is rise it show the message of the error
             return "Indext out of Range The Error are found in method match_End";
         }
@@ -81,39 +67,32 @@ public class ArrayFunction {
         // get the two array
         // array with_x
         ArrayList<Object> array_with_xs = new ArrayList<Object>();
-
         // array with_out x
         ArrayList<Object> array_without_xs = new ArrayList<Object>();
-
         // loop for adding the item individual
         //
         for (Object object : f_x) {
-
             // condition for front_X
             if((object.toString().charAt(0) == 'x') || (object.toString().charAt(0) == 'X')){
-
                 // add the front_x
                 array_with_xs.add(object);
             }else{
-
                 // add the non_Front_x
                 array_without_xs.add(object);
             }
-            }
-            // sort the both the array
-            Collections.sort(array_with_xs,null);
-            //
-            Collections.sort(array_without_xs,null);
-           //
-           // know Combine the both array,s into the array_with_xs
-           for (Object object : array_without_xs ) {
-
-               array_with_xs.add(object);
-           }
-
-           // send array for test
+        }
+        // sort the both the array
+        Collections.sort(array_with_xs,null);
+        //
+        Collections.sort(array_without_xs,null);
+        // know Combine the both array,s into the array_with_xs
+        for (Object object : array_without_xs ) {
+            array_with_xs.add(object);
+        }
+        // send array for test
         return array_with_xs.toString();
     }
+
     // Ok
     // test the sort_last and send back to the main
     public final static Object sort_last(Object array_sort_last_1[][]){
@@ -127,27 +106,25 @@ public class ArrayFunction {
             for (int j = i+1; j < array_sort_last_1.length; j++) {
                 // condition watch
                 // (Integer) casting required to convert the object element into the Integer
-
                 if(((Integer) array_sort_last_1[i][array_sort_last_1[i].length-1] > (Integer) array_sort_last_1[j][array_sort_last_1[j].length-1])){
-
                     // sewap_ing apply_ing on the address of the array not on item
-                    temp1 = array_sort_last_1[i]; array_sort_last_1[i] = array_sort_last_1[j]; array_sort_last_1[j] = temp1;
-
+                    temp1 = array_sort_last_1[i];
+                    array_sort_last_1[i] = array_sort_last_1[j];
+                    array_sort_last_1[j] = temp1;
                 }
             }
         }    // send array for test
         //
         return Arrays.deepToString(array_sort_last_1);
-
     }
 
     // Ok
     // test the remove_adjacent and send back to the main
     public final static Object remove_adjacent(Object r_adjacent[]){
-    // get the temp array and pass the all element
-    // of the first array into the temp
-    ArrayList<Object> temp_Array = new ArrayList<Object>();
-        // loop used to get the single item at one time
+        // get the temp array and pass the all element
+        // of the first array into the temp
+        ArrayList<Object> temp_Array = new ArrayList<Object>();
+        //loop used to get the single item at one time
         for (Object object : r_adjacent) {
             // if it contains the object into the array it
             // become false and not item more add to the temp
@@ -155,38 +132,35 @@ public class ArrayFunction {
                 // add teh single object to the temp_Array
                 temp_Array.add(object);
             }
-
-    } // return the array as the type of string
-      return temp_Array.toString();
-        //
+        } // return the array as the type of string
+        return temp_Array.toString();
     }
+
     // Ok
     // test the linear_merge and send back to the main
     public final static Object linear_merge(Object list1[], Object list2[]){
-    //
-    // merge mean combine to list into single list
-    ArrayList<Object> object = new ArrayList<Object>();
-    // add the first list
-    for (Object object1 : list1) {
-    // condition for front_X
-     object.add(object1);
+        // merge mean combine to list into single list
+        ArrayList<Object> object = new ArrayList<Object>();
+        // add the first list
+        for (Object object1 : list1) {
+            // condition for front_X
+            object.add(object1);
+        }
+        // add the second list
+        for (Object object2 : list2) {
+            // condition for front_X
+            object.add(object2);
+        }
+        // sort the list by use of the Collection
+        Collections.sort(object,null); return object.toString();
     }
-    // add the second list
-    for (Object object2 : list2) {
-      // condition for front_X
-        object.add(object2);
-    }
-    // sort the list by use of the Collection
-    Collections.sort(object,null); return object.toString();
-    }
+
     //
     // Main Method
     public static void main(String[] args) {
-
-
-    //Ok
-    // Match_end problem
-    System.out.println("Match_End");
+        //Ok
+        // Match_end problem
+        System.out.println("Match_End");
         // array 1 match_ends
         Object array[] = {"xxa",121, "aa", "x", "bbb"};
         test(match_ends(array), 4);
