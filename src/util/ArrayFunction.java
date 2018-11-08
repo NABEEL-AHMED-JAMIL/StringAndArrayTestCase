@@ -9,25 +9,17 @@ import java.util.Collections;
  */
 public class ArrayFunction {
 
-    //Ok
-    // test the both String and List
     public final static void test(Object get , Object expected){
         try {
             // condition used for result
-            if (String.valueOf(get).equalsIgnoreCase(String.valueOf(expected))){
-                System.out.print("OK"+"  ");
-            }
+            if (String.valueOf(get).equalsIgnoreCase(String.valueOf(expected))){ System.out.print("OK"+"  "); }
             // condition used for reject the result
-            else{
-                System.out.print("XX"+"  ");
-            }
+            else{ System.out.print("XX"+"  "); }
         } catch (Exception e) {
             System.out.println("System not working ");
         }
     }
 
-    // Ok
-    // test the match ends and send back to the main
     public final static Object match_ends(Object match_e[]){
         try {
             // count the word
@@ -47,9 +39,7 @@ public class ArrayFunction {
                     // get the last single letter but the type is Object
                     temp2 = get_word.toString().charAt(get_word.toString().length()-1);
                     // condition for both first and end are equal if true it count else not
-                    if(temp.toString().equalsIgnoreCase(temp2.toString())){
-                        count_end += 1;
-                    }
+                    if(temp.toString().equalsIgnoreCase(temp2.toString())){ count_end += 1; }
                 }
             }
             // return the Result of the Process
@@ -61,8 +51,6 @@ public class ArrayFunction {
         }
     }
 
-    // Ok
-    // test the front_x and send back to the main
     public final static Object front_x(Object f_x[]){
         // get the two array
         // array with_x
@@ -83,18 +71,13 @@ public class ArrayFunction {
         }
         // sort the both the array
         Collections.sort(array_with_xs,null);
-        //
         Collections.sort(array_without_xs,null);
         // know Combine the both array,s into the array_with_xs
-        for (Object object : array_without_xs ) {
-            array_with_xs.add(object);
-        }
+        for (Object object : array_without_xs ) { array_with_xs.add(object); }
         // send array for test
         return array_with_xs.toString();
     }
 
-    // Ok
-    // test the sort_last and send back to the main
     public final static Object sort_last(Object array_sort_last_1[][]){
     // Method work only Integer
     // get the temp array for single index change
@@ -106,7 +89,8 @@ public class ArrayFunction {
             for (int j = i+1; j < array_sort_last_1.length; j++) {
                 // condition watch
                 // (Integer) casting required to convert the object element into the Integer
-                if(((Integer) array_sort_last_1[i][array_sort_last_1[i].length-1] > (Integer) array_sort_last_1[j][array_sort_last_1[j].length-1])){
+                if(((Integer) array_sort_last_1[i][array_sort_last_1[i].length-1] >
+                        (Integer) array_sort_last_1[j][array_sort_last_1[j].length-1])){
                     // sewap_ing apply_ing on the address of the array not on item
                     temp1 = array_sort_last_1[i];
                     array_sort_last_1[i] = array_sort_last_1[j];
@@ -118,8 +102,6 @@ public class ArrayFunction {
         return Arrays.deepToString(array_sort_last_1);
     }
 
-    // Ok
-    // test the remove_adjacent and send back to the main
     public final static Object remove_adjacent(Object r_adjacent[]){
         // get the temp array and pass the all element
         // of the first array into the temp
@@ -136,8 +118,6 @@ public class ArrayFunction {
         return temp_Array.toString();
     }
 
-    // Ok
-    // test the linear_merge and send back to the main
     public final static Object linear_merge(Object list1[], Object list2[]){
         // merge mean combine to list into single list
         ArrayList<Object> object = new ArrayList<Object>();
@@ -155,10 +135,7 @@ public class ArrayFunction {
         Collections.sort(object,null); return object.toString();
     }
 
-    //
-    // Main Method
     public static void main(String[] args) {
-        //Ok
         // Match_end problem
         System.out.println("Match_End");
         // array 1 match_ends
@@ -170,8 +147,7 @@ public class ArrayFunction {
         // array 3 match_ends
          Object array2[] = {"aaA", "be", "abc", "hello"};
         test(match_ends(array2), 1);
-        //------------------------------------------------
-        // Ok
+
         // Sort problem
          System.out.println("\nSort_last");
 
@@ -189,10 +165,8 @@ public class ArrayFunction {
         Object array_sort_last_3_3[][] = {{2, 2}, {1, 3}, {3, 4, 5}, {1, 7}};
         test(sort_last(array_sort_last_3), Arrays.deepToString(array_sort_last_3_3));
 
-        //------------------------------------------------
-        // Ok
         // Front_end problem
-           System.out.println("\nFront_X");
+        System.out.println("\nFront_X");
         // array,s 1 front-x
         Object array_front_x1[] = {"bbb", "ccc", "axx", "xzz", "xaa"};
         Object array_front_x1_1[] = {"xaa", "xzz", "axx", "bbb", "ccc"};
@@ -207,12 +181,9 @@ public class ArrayFunction {
         Object array_front_x3_3[] = {"xanadu", "xyz", "aardvark", "apple", "mix"};
         test(front_x(array_front_x3), Arrays.toString(array_front_x3_3));
 
-        //---------------------------------------------------
         // Ok
         // Remove adjacent problem
-
         System.out.println( "\nremove_adjacent");
-
         // array,s 1 r_adjacent
         Object r_adjacent[] = {1, 2, 2, 3};
         Object r_adjacent1[] = {1, 2, 3};
@@ -223,15 +194,12 @@ public class ArrayFunction {
         test(remove_adjacent(r_adjacent2), Arrays.toString(r_adjacent2_2));
 
         // array,s 3 adjacent
-        //
         Object r_adjacent3[] = {};
         Object r_adjacent3_3[] = {};
         test(remove_adjacent(r_adjacent3), Arrays.toString(r_adjacent3_3));
 
-        //---------------------------------------------------
-        // Ok
         // linear merge Problem
-            System.out.println("\nlinear_merge");
+        System.out.println("\nlinear_merge");
         // array,s 1 linear_merge
         Object temp_list1[] = {"aa", "xx", "zz"};
         Object temp_list1_1[] = {"bb", "cc"};
@@ -249,9 +217,5 @@ public class ArrayFunction {
         Object temp_list3_1[] = {"aa", "bb", "bb"};
         Object temp_list3_1_1[] = {"aa", "aa", "aa", "bb", "bb"};
         test(linear_merge(temp_list3, temp_list3_1), Arrays.toString(temp_list3_1_1));
-
-        //----------------------------------------------------------
-        // ------------------------Best of Luck----------------------
-
     }
 }
